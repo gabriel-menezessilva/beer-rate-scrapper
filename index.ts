@@ -1,5 +1,6 @@
 import puppeteer from 'puppeteer';
-import { getIPAs } from './service/scrapper-service';
+import { getIPAs } from './src/service/scrapper-service';
+import { db } from './src/util/admin';
 
 (async () => {
 

@@ -3,9 +3,9 @@ import puppeteer from 'puppeteer';
 const getIPAs = async () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto('https://www.brejas.com.br/lista/cervejas/bom-custo-beneficio-para-conhecer-o-estilo-india-pale-ale-ipa');
+    await page.goto('https://mybest-brazil.com.br/19203');
 
-    const ipas = await page.$eval('', (el) => {
+    const ipas = await page.$eval('#\31 816542 > div > table', (el) => {
         console.log({el})
         return (<any>el).value;
     })
