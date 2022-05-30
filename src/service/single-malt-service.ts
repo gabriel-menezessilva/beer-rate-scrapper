@@ -1,9 +1,9 @@
 import puppeteer from 'puppeteer';
 
-const getStout = async () => {
+const getSingleMalt = async () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto('https://mybest-brazil.com.br/19216');
+    await page.goto('https://mybest-brazil.com.br/19140');
 
     const content = await page.$$eval("div > div > table tbody", bodies => {
         return bodies.map(body => {
@@ -12,7 +12,6 @@ const getStout = async () => {
             return Array.from(rows, row => row.querySelector('td')?.innerText);
         })
     });
-
     const names = await page.$$eval(".c-panel__right > h3", headers => {
         return headers.map(h => {
             const beerNames = h.querySelectorAll('.c-panel__heading');
@@ -20,13 +19,11 @@ const getStout = async () => {
         }).flat();
     })
 
-    names.shift();
+    const singleMalt = content.slice(0, 10)
+                        .map((c, i) => ({name: names[i], style: c[1], ibu: c[3], abc: c[4]}));
 
-    const stout = content.slice(0, 10)
-                        .map((c, i) => ({name: names[i], style: c[0], ibu: c[1], abc: c[3]}));
-
-    console.log(stout)
-    await page.screenshot({path: './screenshots/stout.png'});
+    console.log(singleMalt)
+    await page.screenshot({path: './screenshots/single-malt.png'});
 }
 
-export { getStout };
+export { getSingleMalt };

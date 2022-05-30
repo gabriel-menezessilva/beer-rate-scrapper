@@ -23,7 +23,7 @@ const getIPAs = async () => {
     names.shift();
 
     const ipas = content.slice(0, 10)
-                        .map((c, i) => ({name: names[i], style: c[0], color: c[1], dryHopping: c[2], ibu: c[3], abc: c[4]}));
+                        .map((c, i) => ({name: names[i], style: c[0], ibu: c[3], abc: c[4]}));
 
     console.log(ipas)
     await page.screenshot({path: './screenshots/ipas.png'});
