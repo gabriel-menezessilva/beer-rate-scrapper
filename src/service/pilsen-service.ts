@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer';
-//TODO: TERMINAR DE MONTAR A TABELA, SÓ TÔ SUBINDO A ALTERAÇÃO DOS ARQUIVOS
+
 const getPilsen = async () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -12,7 +12,6 @@ const getPilsen = async () => {
             return Array.from(rows, row => row.querySelector('td')?.innerText);
         })
     });
-
     const names = await page.$$eval(".c-panel__right > h3", headers => {
         return headers.map(h => {
             const beerNames = h.querySelectorAll('.c-panel__heading');
@@ -23,10 +22,10 @@ const getPilsen = async () => {
     names.shift();
 
     const pilsen = content.slice(0, 10)
-                        .map((c, i) => ({name: names[i], style: c[0], color: c[1], dryHopping: c[2], ibu: c[3], abc: c[4]}));
+                        .map((c, i) => ({name: names[i], singleMalt: c[0], hop: c[1], ibu: c[2], gluten: c[3], abc: c[4]}));
 
     console.log(pilsen)
-    await page.screenshot({path: './screenshots/ipas.png'});
+    await page.screenshot({path: './screenshots/pilsen.png'});
 }
 
 export { getPilsen };
