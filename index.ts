@@ -11,12 +11,12 @@ import { db } from './src/util/admin';
 (async () => {
 
   try {
-    // getIPAs();
-    // getPilsen();
-    // getStout();
-    // getSingleMalt();
-    // getGerman();
-    // getArtisanal();
+    getIPAs();
+    getPilsen();
+    getStout();
+    getSingleMalt();
+    getGerman();
+    getArtisanal();
     getWeiss();
   } catch (e) {
     console.log(e);
