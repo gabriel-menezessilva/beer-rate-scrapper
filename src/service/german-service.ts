@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 
-const getGermanBeer = async () => {
+const getGerman = async () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto('https://mybest-brazil.com.br/19286');
@@ -22,11 +22,11 @@ const getGermanBeer = async () => {
 
     names.shift();
 
-    const germanBeer = content.slice(0, 10)
+    const german = content.slice(0, 10)
                         .map((c, i) => ({name: names[i], style: c[0], ibu: c[2], abc: c[3]}));
 
-    console.log(germanBeer)
-    await page.screenshot({path: './screenshots/german-beer.png'});
+    console.log(german)
+    await page.screenshot({path: './screenshots/german.png'});
 }
 
-export { getGermanBeer };
+export { getGerman };

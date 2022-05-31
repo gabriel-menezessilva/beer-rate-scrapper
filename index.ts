@@ -1,5 +1,6 @@
 import puppeteer from 'puppeteer';
-import { getGermanBeer } from './src/service/german-beer-service';
+import { getArtisanal } from './src/service/artisanal-service';
+import { getGerman } from './src/service/german-service';
 import { getIPAs } from './src/service/ipa-service';
 import { getPilsen } from './src/service/pilsen-service';
 import { getSingleMalt } from './src/service/single-malt-service';
@@ -9,11 +10,12 @@ import { db } from './src/util/admin';
 (async () => {
 
   try {
-    // getIPAs();
-    // getPilsen();
-    // getStout();
-    // getSingleMalt();
-    getGermanBeer();
+    getIPAs();
+    getPilsen();
+    getStout();
+    getSingleMalt();
+    getGerman();
+    getArtisanal();
   } catch (e) {
     console.log(e);
   }
