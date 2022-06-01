@@ -24,8 +24,10 @@ const getPilsen = async () => {
     const pilsen = content.slice(0, 10)
                         .map((c, i) => ({name: names[i], style: 'Pilsen', ibu: c[2], abc: c[4]}));
 
-    console.log(pilsen)
     await page.screenshot({path: './screenshots/pilsen.png'});
+
+    return pilsen;
+
 }
 
 export { getPilsen };

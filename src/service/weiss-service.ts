@@ -22,8 +22,9 @@ const getWeiss = async () => {
     const weiss = content.slice(0, 10)
                         .map((c, i) => ({name: names[i], style: c[0], ibu: c[3], abc: c[4]}));
 
-    console.log(weiss)
     await page.screenshot({path: './screenshots/weiss.png'});
+
+    return weiss;
 }
 
 export { getWeiss };

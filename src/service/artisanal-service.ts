@@ -26,8 +26,9 @@ const getArtisanal = async () => {
     const artisanal = content.slice(0, 10)
                         .map((c, i) => ({name: names[i], style: c[1], ibu: c[2], abc: c[3]}));
 
-    console.log(artisanal)
     await page.screenshot({path: './screenshots/artisanal.png'});
+
+    return artisanal;
 }
 
 export { getArtisanal };

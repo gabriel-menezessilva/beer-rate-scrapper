@@ -25,8 +25,8 @@ const getIPAs = async () => {
     const ipas = content.slice(0, 10)
                         .map((c, i) => ({name: names[i], style: c[0], ibu: c[3], abc: c[4]}));
 
-    console.log(ipas)
     await page.screenshot({path: './screenshots/ipas.png'});
+    return ipas;
 }
 
 export { getIPAs };

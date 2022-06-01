@@ -25,8 +25,9 @@ const getStout = async () => {
     const stout = content.slice(0, 10)
                         .map((c, i) => ({name: names[i], style: c[0], ibu: c[1], abc: c[3]}));
 
-    console.log(stout)
     await page.screenshot({path: './screenshots/stout.png'});
+
+    return stout;
 }
 
 export { getStout };

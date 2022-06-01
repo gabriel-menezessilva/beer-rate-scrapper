@@ -25,8 +25,9 @@ const getGerman = async () => {
     const german = content.slice(0, 10)
                         .map((c, i) => ({name: names[i], style: c[0], ibu: c[2], abc: c[3]}));
 
-    console.log(german)
     await page.screenshot({path: './screenshots/german.png'});
+
+    return german;
 }
 
 export { getGerman };
