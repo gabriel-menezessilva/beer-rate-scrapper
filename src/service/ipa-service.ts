@@ -1,3 +1,4 @@
+import { cleanString } from './../../utils/string-replacer';
 import puppeteer from 'puppeteer';
 
 const getIPAs = async () => {
@@ -23,9 +24,13 @@ const getIPAs = async () => {
     names.shift();
 
     const ipas = content.slice(0, 10)
-                        .map((c, i) => ({name: names[i], style: c[0], ibu: c[3], abc: c[4]}));
+        .map((c, i) => {
+            console.log({ name: cleanString(names[i]), style: c[0], ibu: Number(cleanString(c[3])), abc: Number(cleanString(c[4])) })
+        });
+    // const ipas = content.slice(0, 10)
+    //     .map((c, i) => ({ name: names[i], style: c[0], ibu: Number(cleanString(c[3])), abc: Number(cleanString(c[4])) }));
 
-    await page.screenshot({path: './screenshots/ipas.png'});
+    await page.screenshot({ path: './screenshots/ipas.png' });
     return ipas;
 }
 

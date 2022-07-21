@@ -1,3 +1,4 @@
+import { cleanString } from './../../utils/string-replacer';
 import puppeteer from 'puppeteer';
 
 const getPilsen = async () => {
@@ -22,7 +23,7 @@ const getPilsen = async () => {
     names.shift();
 
     const pilsen = content.slice(0, 10)
-                        .map((c, i) => ({name: names[i], style: 'Pilsen', ibu: c[2], abc: c[4]}));
+                        .map((c, i) => ({name: names[i], style: 'Pilsen', ibu: Number(cleanString(c[2])), abc: Number(cleanString(c[4]))}));
 
     await page.screenshot({path: './screenshots/pilsen.png'});
 
