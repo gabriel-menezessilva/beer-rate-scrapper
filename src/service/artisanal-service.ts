@@ -25,7 +25,7 @@ const getArtisanal = async () => {
     names.shift();
 
     const artisanal = content.slice(0, 10)
-                        .map((c, i) => ({name: names[i], style: c[1], ibu: Number(cleanString(c[2])), abc: Number(cleanString(c[3]))}));
+                        .map((c, i) => ({name: cleanString(names[i]), style: c[1], ibu: Number(cleanString(c[2])), abc: Number(cleanString(c[3]))}));
 
     await page.screenshot({path: './screenshots/artisanal.png'});
 

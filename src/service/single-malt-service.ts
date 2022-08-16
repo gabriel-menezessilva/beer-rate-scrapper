@@ -21,7 +21,7 @@ const getSingleMalt = async () => {
     })
 
     const singleMalt = content.slice(0, 10)
-                        .map((c, i) => ({name: names[i], style: c[1], ibu: Number(cleanString(c[3])), abc: Number(cleanString(c[4]))}));
+                        .map((c, i) => ({name: cleanString(names[i]), style: c[1], ibu: Number(cleanString(c[3])), abc: Number(cleanString(c[4]))}));
 
     await page.screenshot({path: './screenshots/single-malt.png'});
 

@@ -23,7 +23,7 @@ const getPilsen = async () => {
     names.shift();
 
     const pilsen = content.slice(0, 10)
-                        .map((c, i) => ({name: names[i], style: 'Pilsen', ibu: Number(cleanString(c[2])), abc: Number(cleanString(c[4]))}));
+                        .map((c, i) => ({name: cleanString(names[i]), style: 'Pilsen', ibu: Number(cleanString(c[2])), abc: Number(cleanString(c[4]))}));
 
     await page.screenshot({path: './screenshots/pilsen.png'});
 

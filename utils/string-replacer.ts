@@ -1,18 +1,20 @@
 export const cleanString = (text: string | undefined | null) => {
-    let newText = '';
-    console.log({text})
-    if (!text) {
-        return null;
+    
+    if (!text || !text.match(/\,|%|Cerveja|Pilsen/)) {
+        return text;
     }
     if (text.match(/\,/)) {
-        newText = text.replace(/\,/, '.');
+        text = text.replace(/\,/g, '.');
     }
     if (text.match(/%/)) {
-        newText = text.replace(/\%/, '');
+        text = text.replace(/\%/g, '');
     }
     if (text.match('Cerveja')) {
-        newText = text.replace('Cerveja ', '');
+        text = text.replace('Cerveja ', '');
     }
-    console.log({newText})
-    return newText;
+    if (text.match('Pilsen')) {
+        text = text.replace('Pilsen ', '');
+    }
+
+    return text;
 }

@@ -12,16 +12,14 @@ import { firebaseConfig } from './database/database';
 
   try {
     const ipas = await getIPAs();
-    // const pilsens = await getPilsen();
-    // const stouts = await getStout();
-    // const singleMalts = await getSingleMalt();
-    // const germans = await getGerman();
-    // const artisanals = await getArtisanal();
-    // const weiss = await getWeiss();
+    const pilsens = await getPilsen();
+    const stouts = await getStout();
+    const singleMalts = await getSingleMalt();
+    const germans = await getGerman();
+    const artisanals = await getArtisanal();
+    const weiss = await getWeiss();
 
-    // const beers = [...ipas, ...pilsens, ...stouts, ...singleMalts, ...germans, ...artisanals, ...weiss]
-
-    const beers = ipas;
+    const beers = [...ipas, ...pilsens, ...stouts, ...singleMalts, ...germans, ...artisanals, ...weiss]
 
     admin.initializeApp(firebaseConfig)
 
