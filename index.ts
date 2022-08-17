@@ -19,7 +19,7 @@ import { firebaseConfig } from './database/database';
     const artisanals = await getArtisanal();
     const weiss = await getWeiss();
 
-    const beers = [...ipas, ...pilsens, ...stouts, ...singleMalts, ...germans, ...artisanals, ...weiss]
+    const beers = [...ipas, ...pilsens, ...stouts, ...singleMalts, ...germans, ...artisanals, ...weiss];
 
     admin.initializeApp(firebaseConfig)
 
